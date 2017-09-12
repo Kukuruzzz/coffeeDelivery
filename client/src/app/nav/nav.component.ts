@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {AuthService} from "../sevices/auth.service";
+import {AuthService} from '../sevices/auth.service';
 
 @Component({
   selector: 'app-nav',
@@ -10,10 +10,10 @@ export class NavComponent {
 
   constructor(public authService: AuthService) { }
 
-  login(){
+  login() {
     this.authService.logIn();
   }
-  logout(){
+  logout() {
     this.authService.logOut();
   }
 }

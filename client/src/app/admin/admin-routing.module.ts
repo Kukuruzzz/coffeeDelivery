@@ -1,17 +1,17 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from "@angular/router";
+import { Routes, RouterModule } from '@angular/router';
 
 import { AdminComponent } from './admin.component';
 import { ManageClientsComponent } from '../manage-clients/manage-clients.component';
 import { ManageProductsComponent } from '../manage-products/manage-products.component';
-import { ManageOrdersComponent } from "../manage-orders/manage-orders.component";
-import { AuthGuard } from "../sevices/auth-guard.service";
+import { ManageOrdersComponent } from '../manage-orders/manage-orders.component';
+import { AuthGuard } from '../sevices/auth-guard.service';
 
 const adminRoutes: Routes = [
   {
     path: 'admin',
     component: AdminComponent,
-    canActivate: [AuthGuard],
+    // canActivate: [AuthGuard],
     children: [
       {
         path: '',

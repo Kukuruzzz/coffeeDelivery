@@ -38,18 +38,18 @@ module.exports = function(app, db) {
         });
     });
 
-    // app.put ('/products/:id', (req, res) => {
-    //     const id = req.params.id;
-    //     const details = { '_id': new ObjectID(id) };
-    //     const product = { text: req.body.body, title: req.body.title };
-    //     db.collection('products').update(details, product, (err, result) => {
-    //         if (err) {
-    //             res.send({'error':'An error has occurred'});
-    //         } else {
-    //             res.send(product);
-    //         }
-    //     });
-    // });
+    app.put ('/products/:id', (req, res) => {
+        const id = req.params.id;
+        const details = { '_id': new ObjectID(id) };
+        const product = { text: req.body.body, title: req.body.title };
+        db.collection('products').update(details, product, (err, result) => {
+            if (err) {
+                res.send({'error':'An error has occurred'});
+            } else {
+                res.send(product);
+            }
+        });
+    });
 
     app.delete('/products/:id', (req, res) => {
         const id = req.params.id;
@@ -62,7 +62,6 @@ module.exports = function(app, db) {
                 res.send('Product ' + id + ' deleted');
             }
         })
-
     })
 };
 
