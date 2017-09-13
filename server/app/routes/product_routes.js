@@ -1,6 +1,7 @@
 var ObjectID = require('mongodb').ObjectID;
 
 module.exports = function(app, db) {
+
     app.get('/products/:id', (req, res) => {
         const id = req.params.id;
         const details = { '_id': new ObjectID(id) };
@@ -21,19 +22,6 @@ module.exports = function(app, db) {
                 res.send({ 'error': 'An error has occurred' });
             } else {
                 res.send(result.ops[0]);
-            }
-        });
-    });
-
-    app.put('/products/:id', (req, res) => {
-        const id = req.params.id;
-        const details = { '_id': new ObjectID(id) };
-        const product = { text: req.body.body, title: req.body.title };
-        db.collection('products').update(details, product, (err, result) => {
-            if (err) {
-                res.send({ 'error': 'An error been occurred' });
-            } else {
-                res.send(product);
             }
         });
     });
